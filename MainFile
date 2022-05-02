@@ -1,0 +1,65 @@
+#This price calculates the bill for a gas station 
+
+#Get the user to input the amount of gas needed (in gallons)
+gallons = float(input('How many gallons:'))
+
+#Get user to chose the type of gas
+print('Chose the type of Gas')
+print('Press R for Regular, P for Plus' +
+     'S for Super, or N for No Purchase')
+gtype = input('Type of Gas?:')
+
+#Ask the user if they want a car wash
+wash = input('Car Wash? Press Y or N:')
+
+if gtype == 'R' or gtype == 'r':
+  ptype = 2.89
+  gtotal = gallons * ptype
+  if wash == 'Y' or wash == 'y' and gtotal >= 10:
+    wcost = 1.25
+    total = gtotal + wcost
+  elif wash == 'Y' or wash == 'y' and gtotal < 10:
+    wcost = 3.0
+    total = gtotal + wcost
+  else:
+    total = gtotal
+
+elif gtype == 'P' or gtype == 'p':
+  ptype = 3.09
+  gtotal = gallons * ptype 
+  if wash == 'Y' or wash == 'y' and gtotal >= 10:
+    wcost = 1.25
+    total = gtotal + wcost
+  elif wash == 'Y' or wash == 'y' and gtotal < 10:
+    wcost = 3.00
+    total = gtotal + wcost
+  else:
+    total = gtotal
+
+elif gtype == 'S' or gtype == 's':
+  ptype = 3.39
+  gtotal = gallons * ptype
+  if wash == 'Y' or wash == 'y' and gtotal >= 10:
+    wcost = 1.25
+    total = gtotal + wcost
+  elif wash == 'Y' or wash == 'y' and gtotal < 10:
+    wcost = 3.00
+    total = gtotal + wcost
+  else:
+    total = gtotal
+
+else:
+  ptype = 'None'
+  gtotal = 0
+  total = gtotal
+  if wash == 'Y' or wash == 'y' :
+    wcost = 3.00
+    total = gtotal + wcost
+
+#Display the invoice
+print('Gas-N-Clean Service station\n')
+print('Amount of Gallons purchased:', gallons)
+print('Price per gallons:', ptype)
+print('Total gasoline cost:', format(gtotal, '.2f'))
+print('Car wash cost:', wcost)
+print('Total:', format(total, '.2f'))
